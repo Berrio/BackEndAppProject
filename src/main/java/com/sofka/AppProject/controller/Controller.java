@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("api/")
@@ -20,6 +21,15 @@ public class Controller {
     @GetMapping
     public List<CategoryDTO> getAllCategorys(){
         return service.findAllCategory();
+    }
+
+    @GetMapping("findcategory/{id}")
+    public Optional<Category> findCategoryById(@PathVariable Long id){
+        return service.findCategoryById(id);
+    }
+    @GetMapping("findtask/{id}")
+    public Optional<Task> findTaskById(@PathVariable Long id){
+        return service.findTaskById(id);
     }
 
     @PostMapping("create/category")
@@ -37,13 +47,13 @@ public class Controller {
         return service.updateTask(task);
     }
 
-    @DeleteMapping("delete/category")
-    public void deleteCategory(@RequestBody Long id){
+    @DeleteMapping("delete/category/{id}")
+    public void deleteCategory(@PathVariable Long id){
         service.deleteCategory(id);
     }
 
-    @DeleteMapping("delete/task")
-    public void deleteTask(@RequestBody Long id){
+    @DeleteMapping("delete/task/{id}")
+    public void deleteTask(@PathVariable Long id){
         service.deleteTask(id);
     }
 
