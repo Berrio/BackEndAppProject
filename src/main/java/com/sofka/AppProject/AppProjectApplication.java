@@ -9,6 +9,12 @@ import org.springframework.context.annotation.Bean;
 public class AppProjectApplication {
 
 
+	@Bean
+	public ModelMapper modelMapper(){
+		return new ModelMapper();
+	}
+
+
 
 	public static void main(String[] args) {
 		SpringApplication.run(AppProjectApplication.class, args);

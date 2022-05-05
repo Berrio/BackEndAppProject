@@ -1,9 +1,11 @@
 package com.sofka.AppProject.controller;
 
+import com.sofka.AppProject.dao.AppDAOInterface;
+import com.sofka.AppProject.dto.CategoryDTO;
 import com.sofka.AppProject.entity.Category;
 import com.sofka.AppProject.entity.Task;
-import com.sofka.AppProject.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,10 +15,10 @@ import java.util.List;
 public class Controller {
 
     @Autowired
-    private CategoryService service;
+    private AppDAOInterface service;
 
     @GetMapping
-    public List<Category> getAllCategorys(){
+    public List<CategoryDTO> getAllCategorys(){
         return service.findAllCategory();
     }
 
@@ -36,13 +38,13 @@ public class Controller {
     }
 
     @DeleteMapping("delete/category")
-    public void deleteCategory(@RequestBody Category category){
-        service.deleteCategory(category);
+    public void deleteCategory(@RequestBody Long id){
+        service.deleteCategory(id);
     }
 
     @DeleteMapping("delete/task")
-    public void deleteTask(@RequestBody Task task){
-        service.deleteTask(task);
+    public void deleteTask(@RequestBody Long id){
+        service.deleteTask(id);
     }
 
 }
