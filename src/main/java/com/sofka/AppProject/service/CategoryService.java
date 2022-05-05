@@ -1,5 +1,6 @@
 package com.sofka.AppProject.service;
 
+import com.sofka.AppProject.dto.CategoryDTO;
 import com.sofka.AppProject.entity.Category;
 import com.sofka.AppProject.entity.Task;
 
@@ -18,5 +19,5 @@ public interface CategoryService {
 
     void deleteCategory(Category category);
 
-    List<Category> findAllCategory();
+    List<CategoryDTO> findAllCategory();
 }
