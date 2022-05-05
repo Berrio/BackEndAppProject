@@ -15,5 +15,7 @@ public class Task {
 
     private String task;
 
+    private Boolean complete;
+
     private Long fkTasktId;
 }

@@ -12,6 +12,8 @@ public interface CategoryService {
 
     Category createTask(Task task);
 
+    Category updateTask(Task task);
+
     void deleteTask(Task task);
 
     void deleteCategory(Category category);
