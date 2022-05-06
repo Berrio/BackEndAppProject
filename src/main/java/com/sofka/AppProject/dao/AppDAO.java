@@ -1,6 +1,7 @@
 package com.sofka.AppProject.dao;
 
 import com.sofka.AppProject.dto.CategoryDTO;
+import com.sofka.AppProject.dto.TaskDTO;
 import com.sofka.AppProject.entity.Category;
 import com.sofka.AppProject.entity.Task;
 import com.sofka.AppProject.repository.CategoryRepository;
@@ -29,8 +30,8 @@ public class AppDAO implements AppDAOInterface{
     private  ModelMapper modelMapper;
 
     @Override
-    public Category createCategory(Category category) {
-        return categoryRepository.save(category);
+    public CategoryDTO createCategory(Category category) {
+        return convertEntityToDto(categoryRepository.save(category));
     }
 
     @Override
@@ -41,11 +42,11 @@ public class AppDAO implements AppDAOInterface{
     }
 
     @Override
-    public Category updateTask(Task task) {
+    public CategoryDTO updateTask(Task task) {
         taskRepository.deleteById(task.getId());
         taskRepository.save(task);
 
-        return  categoryRepository.findById(task.getId()).get();
+        return  convertEntityToDto(categoryRepository.findById(task.getId()).get());
     }
 
     @Override
@@ -66,14 +67,15 @@ public class AppDAO implements AppDAOInterface{
     }
 
     @Override
-    public Optional<Category> findCategoryById(Long id) {
-        return categoryRepository.findById(id);
+    public Optional<Category> findCategoryById(Long category) {
+        return categoryRepository.findById(category);
     }
 
     @Override
     public Optional<Task> findTaskById(Long id) {
         return taskRepository.findById(id);
     }
+
 
     private CategoryDTO convertEntityToDto(Category category){
         modelMapper.getConfiguration()
@@ -83,11 +85,29 @@ public class AppDAO implements AppDAOInterface{
         return categoryDTO;
     }
 
+
     private Category convertDtoToEntity(CategoryDTO categoryDTO){
         modelMapper.getConfiguration()
                 .setMatchingStrategy(MatchingStrategies.LOOSE);
         Category category = new Category();
         category = modelMapper.map(categoryDTO, Category.class);
         return category;
+    }
+
+    private TaskDTO convertEntityToDto(Task task){
+        modelMapper.getConfiguration()
+                .setMatchingStrategy(MatchingStrategies.LOOSE);
+        TaskDTO taskDTO = new TaskDTO();
+        taskDTO = modelMapper.map(task, TaskDTO.class);
+        return taskDTO;
+    }
+
+
+    private Task convertDtoToEntity(TaskDTO taskDTO){
+        modelMapper.getConfiguration()
+                .setMatchingStrategy(MatchingStrategies.LOOSE);
+        Task task = new Task();
+        task = modelMapper.map(taskDTO, Task.class);
+        return task;
     }
 }

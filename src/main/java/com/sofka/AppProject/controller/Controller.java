@@ -33,7 +33,7 @@ public class Controller {
     }
 
     @PostMapping("create/category")
-    public Category createCategory(@RequestBody Category category){
+    public CategoryDTO createCategory(@RequestBody Category category){
         return service.createCategory(category);
     }
 
@@ -43,7 +43,7 @@ public class Controller {
     }
 
     @PutMapping("update/task")
-    public Category updateTask(@RequestBody Task task){
+    public CategoryDTO updateTask(@RequestBody Task task){
         return service.updateTask(task);
     }
 

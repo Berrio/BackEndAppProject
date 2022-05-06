@@ -11,9 +11,9 @@ import java.util.Optional;
 
 public interface AppDAOInterface {
     List<CategoryDTO> findAllCategory();
-    Category createCategory(Category category);
+    CategoryDTO createCategory(Category category);
     Category createTask(Task task);
-    Category updateTask(Task task);
+    CategoryDTO updateTask(Task task);
     void deleteTask(Long id);
     void deleteCategory(Long id);
     Optional<Category> findCategoryById(Long id);
