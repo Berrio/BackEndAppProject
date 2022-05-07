@@ -19,7 +19,7 @@ if you want to test the backend or you want to create a new grapical interface y
 4. post http://localhost:8081/api/create/task
 5. put http://localhost:8081/api/update/task
 6. delete http://localhost:8081/api/delete/category/id
-7. delete ttp://localhost:8081/api/delete/task/id
+7. delete http://localhost:8081/api/delete/task/id
 
 
 ## Licencia
