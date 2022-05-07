@@ -1,11 +1,12 @@
 package com.sofka.AppProject.entity;
 
 import javax.persistence.*;
+
 import lombok.Data;
 
 
-@Entity(name="Task")
-@Table(name="task")
+@Entity(name = "Task")
+@Table(name = "task")
 @Data
 public class Task {
 

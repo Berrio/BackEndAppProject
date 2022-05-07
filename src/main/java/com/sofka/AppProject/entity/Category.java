@@ -8,8 +8,8 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity(name="Category")
-@Table(name="category")
+@Entity(name = "Category")
+@Table(name = "category")
 @Data
 public class Category {
 
@@ -18,11 +18,11 @@ public class Category {
     private Long id;
     private String category;
 
-    @OneToMany( cascade = CascadeType.ALL,
+    @OneToMany(cascade = CascadeType.ALL,
             fetch = FetchType.EAGER)
-    private List<Task> listTask =new ArrayList<>();
+    private List<Task> listTask = new ArrayList<>();
 
-    public Category addTask(Task task){
+    public Category addTask(Task task) {
 
         this.listTask.add(task);
         return this;

@@ -9,8 +9,6 @@ import com.sofka.AppProject.repository.TaskRepository;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Primary;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,7 +16,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-public class AppDAO implements AppDAOInterface{
+public class AppDAO implements AppDAOInterface {
 
     @Autowired
     private CategoryRepository categoryRepository;
@@ -27,7 +25,7 @@ public class AppDAO implements AppDAOInterface{
     private TaskRepository taskRepository;
 
     @Autowired
-    private  ModelMapper modelMapper;
+    private ModelMapper modelMapper;
 
     @Override
     public CategoryDTO createCategory(Category category) {
@@ -36,17 +34,14 @@ public class AppDAO implements AppDAOInterface{
 
     @Override
     public Category createTask(Task task) {
-        Category category= categoryRepository.findById(task.getFkTasktId()).get();
+        Category category = categoryRepository.findById(task.getFkTasktId()).get();
         category.addTask(task);
         return categoryRepository.save(category);
     }
 
     @Override
-    public CategoryDTO updateTask(Task task) {
-        taskRepository.deleteById(task.getId());
-        taskRepository.save(task);
-
-        return  convertEntityToDto(categoryRepository.findById(task.getId()).get());
+    public Task updateTask(Task task) {
+        return taskRepository.save(task);
     }
 
     @Override
@@ -77,7 +72,7 @@ public class AppDAO implements AppDAOInterface{
     }
 
 
-    private CategoryDTO convertEntityToDto(Category category){
+    private CategoryDTO convertEntityToDto(Category category) {
         modelMapper.getConfiguration()
                 .setMatchingStrategy(MatchingStrategies.LOOSE);
         CategoryDTO categoryDTO = new CategoryDTO();
@@ -86,7 +81,7 @@ public class AppDAO implements AppDAOInterface{
     }
 
 
-    private Category convertDtoToEntity(CategoryDTO categoryDTO){
+    private Category convertDtoToEntity(CategoryDTO categoryDTO) {
         modelMapper.getConfiguration()
                 .setMatchingStrategy(MatchingStrategies.LOOSE);
         Category category = new Category();
@@ -94,7 +89,7 @@ public class AppDAO implements AppDAOInterface{
         return category;
     }
 
-    private TaskDTO convertEntityToDto(Task task){
+    private TaskDTO convertTaskEntityToDto(Task task) {
         modelMapper.getConfiguration()
                 .setMatchingStrategy(MatchingStrategies.LOOSE);
         TaskDTO taskDTO = new TaskDTO();
@@ -103,7 +98,7 @@ public class AppDAO implements AppDAOInterface{
     }
 
 
-    private Task convertDtoToEntity(TaskDTO taskDTO){
+    private Task convertTaskDtoToEntity(TaskDTO taskDTO) {
         modelMapper.getConfiguration()
                 .setMatchingStrategy(MatchingStrategies.LOOSE);
         Task task = new Task();
