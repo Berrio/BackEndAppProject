@@ -1,6 +1,7 @@
-# BackEndAppProject
+# Todo Tasks BackEndAppProject
 
 This is the backend for a ToDo tasks, this project is built whit java 11 and spring boot and its dependencies lombok,spring data, spring web and use a Mysql BD .
+you can create with this project several categorys of tasks, and inside the category many tasks to control what you have to do during the day,week,month or year 
 
 ## how to install
 
@@ -10,7 +11,7 @@ you have to create a mysql schema whit the name **category** in order to the pro
 
 ## How to use it
 
-you can just use the api whitout the frontend, or you can go to this repository **https://github.com/Berrio/FrontAppProject** if you want to use a grapical interface
+you can just use the api whitout the frontend, or you can go to this repository **https://github.com/Berrio/FrontAppProject**, if you want to use a grapical interface
 if you want to test the backend or you want to create a new grapical interface you can test the backend whit these endpoints.
 
 1. get http://localhost:8081/api/
