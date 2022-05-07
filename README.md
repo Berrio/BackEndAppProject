@@ -2,7 +2,7 @@
 
 This is the backend for a ToDo tasks, this project is built whit java 11 and spring boot and its dependencies lombok,spring data, spring web and use a Mysql BD .
 
-## Instalación
+## how to install
 
 clone the repository
 https://github.com/Berrio/BackEndAppProject.git
