@@ -13,13 +13,13 @@ you have to create a mysql schema whit the name **category** in order to the pro
 you can just use the api whitout the frontend, or you can go to this repository **https://github.com/Berrio/FrontAppProject** if you want to use a grapical interface
 if you want to test the backend or you want to create a new grapical interface you can test the backend whit these endpoints.
 
-get http://localhost:8081/api/
-get http://localhost:8081/api/findcategory/id
-post http://localhost:8081/api/create/category
-post http://localhost:8081/api/create/task
-put http://localhost:8081/api/update/task
-delete http://localhost:8081/api/delete/category/id
-delete ttp://localhost:8081/api/delete/task/id
+1 get http://localhost:8081/api/
+2 get http://localhost:8081/api/findcategory/id
+3 post http://localhost:8081/api/create/category
+4 post http://localhost:8081/api/create/task
+5 put http://localhost:8081/api/update/task
+6 delete http://localhost:8081/api/delete/category/id
+7 delete ttp://localhost:8081/api/delete/task/id
 
 
 ## Licencia
