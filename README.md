@@ -11,8 +11,8 @@ you have to create a mysql schema whit the name **category** in order to the pro
 
 ## How to use it
 
-you can just use the api whitout the frontend, or you can go to this repository **https://github.com/Berrio/FrontAppProject**, if you want to use a grapical interface
-if you want to test the backend or you want to create a new grapical interface you can test the backend whit these endpoints.
+you can just use the api whitout the frontend, or you can go to this repository **https://github.com/Berrio/FrontAppProject** if you want to use a grapical interface. 
+If you want to test the backend or you want to create a new grapical interface you can test the backend whit these endpoints.
 
 1. get http://localhost:8081/api/
 2. get http://localhost:8081/api/findcategory/id
