@@ -33,15 +33,15 @@ public class AppDAO implements AppDAOInterface {
     }
 
     @Override
-    public Category createTask(Task task) {
+    public CategoryDTO createTask(Task task) {
         Category category = categoryRepository.findById(task.getFkTasktId()).get();
         category.addTask(task);
-        return categoryRepository.save(category);
+        return convertEntityToDto(categoryRepository.save(category));
     }
 
     @Override
-    public Task updateTask(Task task) {
-        return taskRepository.save(task);
+    public TaskDTO updateTask(Task task) {
+        return convertTaskEntityToDto(taskRepository.save(task));
     }
 
     @Override
@@ -61,16 +61,6 @@ public class AppDAO implements AppDAOInterface {
                 .collect(Collectors.toList());
     }
 
-    @Override
-    public Optional<Category> findCategoryById(Long category) {
-        return categoryRepository.findById(category);
-    }
-
-    @Override
-    public Optional<Task> findTaskById(Long id) {
-        return taskRepository.findById(id);
-    }
-
 
     private CategoryDTO convertEntityToDto(Category category) {
         modelMapper.getConfiguration()
@@ -81,14 +71,6 @@ public class AppDAO implements AppDAOInterface {
     }
 
 
-    private Category convertDtoToEntity(CategoryDTO categoryDTO) {
-        modelMapper.getConfiguration()
-                .setMatchingStrategy(MatchingStrategies.LOOSE);
-        Category category = new Category();
-        category = modelMapper.map(categoryDTO, Category.class);
-        return category;
-    }
-
     private TaskDTO convertTaskEntityToDto(Task task) {
         modelMapper.getConfiguration()
                 .setMatchingStrategy(MatchingStrategies.LOOSE);
@@ -98,11 +80,5 @@ public class AppDAO implements AppDAOInterface {
     }
 
 
-    private Task convertTaskDtoToEntity(TaskDTO taskDTO) {
-        modelMapper.getConfiguration()
-                .setMatchingStrategy(MatchingStrategies.LOOSE);
-        Task task = new Task();
-        task = modelMapper.map(taskDTO, Task.class);
-        return task;
-    }
+
 }

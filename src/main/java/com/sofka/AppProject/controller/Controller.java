@@ -25,15 +25,6 @@ public class Controller {
         return service.findAllCategory();
     }
 
-    @GetMapping("findcategory/{id}")
-    public Optional<Category> findCategoryById(@PathVariable Long id) {
-        return service.findCategoryById(id);
-    }
-
-    @GetMapping("findtask/{id}")
-    public Optional<Task> findTaskById(@PathVariable Long id) {
-        return service.findTaskById(id);
-    }
 
     @PostMapping("create/category")
     public CategoryDTO createCategory(@RequestBody Category category) {
@@ -41,12 +32,12 @@ public class Controller {
     }
 
     @PostMapping("create/task")
-    public Category createTask(@RequestBody Task task) {
+    public CategoryDTO createTask(@RequestBody Task task) {
         return service.createTask(task);
     }
 
     @PutMapping("update/task")
-    public Task updateTask(@RequestBody Task task) {
+    public TaskDTO updateTask(@RequestBody Task task) {
         return service.updateTask(task);
     }
 

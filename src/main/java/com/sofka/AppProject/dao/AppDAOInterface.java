@@ -15,16 +15,14 @@ public interface AppDAOInterface {
 
     CategoryDTO createCategory(Category category);
 
-    Category createTask(Task task);
+    CategoryDTO createTask(Task task);
 
-    Task updateTask(Task task);
+    TaskDTO updateTask(Task task);
 
     void deleteTask(Long id);
 
     void deleteCategory(Long id);
 
-    Optional<Category> findCategoryById(Long id);
 
-    Optional<Task> findTaskById(Long id);
 
 }
